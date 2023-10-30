@@ -30,7 +30,7 @@ app.get("/movies", async (req, res) => {
     const data = await axios({
       method: "GET",
       url: "https://api.themoviedb.org/3/movie/popular",
-      params: { language: "en-US", page: `${id}` },
+      params: { language: "en-US", page: `${id}` , include_adult: 'false'},
       headers: {
         accept: "application/json",
         Authorization: process.env.Autherization,
@@ -96,7 +96,7 @@ app.get("/series", async (req, res) => {
     const data = await axios({
       method: "GET",
       url: "https://api.themoviedb.org/3/tv/airing_today",
-      params: { language: "en-US", page: "1" },
+      params: { language: "en-US", page: "1" , include_adult: 'false'},
       headers: {
         accept: "application/json",
         Authorization:process.env.Autherization,
